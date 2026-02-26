@@ -1,0 +1,632 @@
+/* ========================= */
+/* GLOBAL FIXES */
+/* ========================= */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    word-wrap: break-word;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================= */
+/* ROOT VARIABLES */
+/* ========================= */
+
+:root {
+    --primary: #00ffcc;
+    --glass-bg: rgba(255,255,255,0.05);
+}
+
+/* ========================= */
+/* BACKGROUND ANIMATION */
+/* ========================= */
+
+@keyframes backgroundMove {
+    0% { background-position: center top; }
+    50% { background-position: center center; }
+    100% { background-position: center top; }
+}
+
+/* ========================= */
+/* BASE BODY */
+/* ========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background-image: url("../static/ai-bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    animation: backgroundMove 20s ease-in-out infinite;
+    overflow-x: hidden;
+}
+
+/* Dark overlay */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: -1;
+}
+
+/* Particles */
+
+#particles-js {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* ========================= */
+/* PROFILE PIC */
+/* ========================= */
+
+.profile-pic {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* ========================= */
+/* TEXT */
+/* ========================= */
+
+h1 {
+    font-size: 56px;
+    margin: 10px 0;
+}
+
+h2 {
+    color: var(--primary);
+    height: 36px;
+}
+
+#typing {
+    width: 260px;
+    display: inline-block;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: var(--primary);
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ========================= */
+/* GLASS CARD */
+/* ========================= */
+
+.glass-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,255,204,0.2);
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 120px auto;
+    padding: 70px 80px;
+    transition: 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(0,255,204,0.3);
+}
+
+.glass-card p {
+    max-width: 800px;
+    margin: 0 auto 18px auto;  /* adds gap between paragraphs */
+    line-height: 1.8;
+}
+
+.glass-card h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.glass-card p {
+    max-width: 800px;
+    margin: 0 auto 22px auto;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+/* ========================= */
+/* PROJECTS */
+/* ========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 18px;
+}
+
+.proj-card {
+    background: rgba(255,255,255,0.02);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.proj-card img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.proj-card p {
+    line-height: 1.8;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.proj-card p br {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* ========================= */
+/* SKILLS */
+/* ========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+}
+
+.skills-grid div {
+    background: rgba(0,255,204,0.06);
+    padding: 22px;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.skills-grid div:hover {
+    transform: translateY(-8px);
+}
+
+/* ========================= */
+/* CONTACT */
+/* ========================= */
+
+.contact-form {
+    max-width: 720px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    background: #111;
+    color: white;
+    border: none;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0b0b0b;
+}
+
+/* ========================= */
+/* SOCIAL */
+/* ========================= */
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons img {
+    width: 34px;
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.3);
+}
+
+/* ========================= */
+/* ANIMATION BUTTON */
+/* ========================= */
+
+.anim-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    padding: 12px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#00ffcc,#00c3ff);
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* ========================= */
+/* AI BUTTON */
+/* ========================= */
+
+#aiButton {
+    position: fixed;
+    right: 20px;
+    bottom: 110px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg,#00f0ff,#0066ff);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,255,255,0.6);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+#aiButton:hover {
+    transform: scale(1.15);
+}
+
+/* ========================= */
+/* CHAT WINDOW */
+/* ========================= */
+
+#chatWindow {
+    position: fixed;
+    right: 20px;
+    bottom: 180px;
+    width: 320px;
+    height: 420px;
+    background: rgba(0,0,0,0.95);
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+#chatHeader {
+    background: #0066ff;
+    padding: 10px;
+}
+
+#chatMessages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chatInputArea {
+    display: flex;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px;
+    border: none;
+}
+
+#chatInputArea button {
+    padding: 10px;
+    border: none;
+    background: #0066ff;
+    color: white;
+}
+
+/* ========================= */
+/* IMAGE SAFETY */
+/* ========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        background-image: url("../static/ai-bg.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        animation: none;
+    }
+
+    #particles-js {
+        display: none;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #typing {
+        width: auto;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+
+    .glass-card {
+        margin: 70px 12px;
+        padding: 25px 16px;
+        backdrop-filter: blur(6px);
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    #chatWindow {
+        width: 92%;
+        right: 4%;
+        bottom: 90px;
+        height: 60vh;
+    }
+
+    #aiButton {
+        right: 15px;
+        bottom: 100px;
+    }
+
+    .anim-btn {
+        right: 15px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero {
+        height: auto;
+        padding-top: 120px;
+    }
+
+    .profile-pic {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* FORCE HIDE animation button on phones only */
+@media screen and (max-width: 1024px),
+       screen and (pointer: coarse) {
+
+    #toggleAnimation,
+    .anim-btn {
+        display: none !important;
+    }
+
+}
+
+/* ========================= */
+/* AI BUTTON POSITION CONTROL */
+/* ========================= */
+
+/* Desktop / Laptop default position */
+#aiButton {
+    right: 20px;
+    bottom: 110px;
+}
+
+/* ONLY phone view override */
+@media screen and (max-width: 768px) {
+
+    body #aiButton {
+        position: fixed !important;
+        right: 15px !important;
+        bottom: 170px !important; /* move up on phone */
+        z-index: 9999 !important;
+    }
+
+}
+/* ========================= */
+/* MOBILE BACKGROUND REAL FIX */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+
+    html, body {
+
+        background-size: cover !important;
+        background-position: center top !important;
+
+    }
+
+}
+
+/* extra small phones */
+/* ========================= */
+/* MOBILE BACKGROUND FIX */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background: none !important;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/ai-bg.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: -2;
+    }
+
+}
+/* ========================= */
+/* MOBILE BACKGROUND FULL SCROLL FIX */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background: none !important;
+    }
+
+    body::after {
+
+        content: "";
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        min-height: 100lvh; /* modern mobile browsers */
+
+        background-image: url("../static/ai-bg.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        z-index: -10;
+    }
+
+    /* IMPORTANT: ensure page itself transparent */
+    html {
+        background: transparent !important;
+    }
+
+}

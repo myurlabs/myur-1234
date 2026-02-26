@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Myur Devraj CV</title>
+
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    background:black;
+
+    overflow-x:hidden;   /* no left-right scroll */
+    overflow-y:auto;     /* allow up-down scroll */
+}
+
+/* iframe full size */
+iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+}
+</style>
+
+<script>
+// disable right click only
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+// disable keyboard save/print/inspect
+document.addEventListener("keydown", function(e){
+    if(
+        (e.ctrlKey && ['s','p','u'].includes(e.key.toLowerCase())) ||
+        e.key === "F12"
+    ){
+        e.preventDefault();
+    }
+});
+</script>
+
+</head>
+
+<body>
+
+<iframe src="/cv#toolbar=0"></iframe>
+
+</body>
+</html>
